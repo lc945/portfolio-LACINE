@@ -1,570 +1,1148 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>Abou Lacine SANOGO - Portfolio</title>
-  <meta name="description" content="Portfolio d'Abou Lacine SANOGO – Développeur Full Stack & Data (BUT Informatique & Sciences des Données)" />
-  <meta name="keywords" content="Abou Lacine SANOGO, développeur, data, BUT Informatique, Sorbonne Paris Nord, Python, JavaScript, React, SQL, Pandas, Matplotlib" />
-  <meta name="author" content="Abou Lacine SANOGO" />
-  <meta property="og:title" content="Abou Lacine SANOGO - Portfolio">
-  <meta property="og:description" content="Développeur Full Stack & Data – Projets, SAÉ, et stage Marchés BTP">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Abou Lacine SANOGO - Portfolio">
-  <meta name="twitter:description" content="Développeur Full Stack & Data – Projets, SAÉ, et stage Marchés BTP">
-  <link rel="apple-touch-icon" href="assets/img/favicon/apple-touch-icon.png">
-  <link rel="icon" href="assets/img/favicon/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/venobox.css" type="text/css" media="screen" />
-  <link href="assets/css/slicknav.css" rel="stylesheet">
-  <link href="assets/css/venobox.css" rel="stylesheet">
-  <link href="assets/css/elements.css" rel="stylesheet">
-  <link href="assets/css/themify-icons.css" rel="stylesheet">
-  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
-  <link href="assets/css/responsive.css" rel="stylesheet">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Abou Lacine SANOGO — Développeur Full Stack</title>
+  <meta name="description" content="Portfolio d'Abou Lacine SANOGO – Développeur Full Stack, étudiant BUT 3 Informatique IUT Villetaneuse"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
-    /* Petites aides pour impression du dossier */
-    @media print{
-      a[href]:after{content:""}
-      .header-top,.hero-social-link-area,.faq-area,.location-area,.footer-bottom-area{display:none!important}
-      .section{page-break-inside:avoid}
-      .page-break{page-break-before:always}
-      body{background:#fff}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --surface: #16161e;
+      --border: rgba(255,255,255,0.07);
+      --accent: #4f8aff;
+      --accent2: #7c5cfc;
+      --text: #e8e8f0;
+      --muted: #6b6b80;
+      --white: #ffffff;
+      --radius: 16px;
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
     }
-    .print-btn{position:fixed; right:16px; bottom:16px; z-index:9999}
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── CURSOR ── */
+    .cursor {
+      width: 10px; height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      position: fixed; pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: transform 0.08s, width 0.2s, height 0.2s, opacity 0.2s;
+      mix-blend-mode: screen;
+    }
+    .cursor-ring {
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(79,138,255,0.5);
+      border-radius: 50%;
+      position: fixed; pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: transform 0.18s ease, width 0.2s, height 0.2s;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 5vw;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 17px;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex; gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 5vw 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(79,138,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79,138,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(79,138,255,0.12) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+    .hero-glow2 {
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(124,92,252,0.08) 0%, transparent 70%);
+      bottom: 0; left: 10%;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 800px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(79,138,255,0.1);
+      border: 1px solid rgba(79,138,255,0.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 28px;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: blink 2s ease infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; } 50% { opacity: 0.3; }
+    }
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(40px, 7vw, 80px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .hero-title .name { color: var(--accent); }
+    .hero-title .line2 {
+      display: block;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+      color: transparent;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+    .hero-sub strong { color: var(--text); font-weight: 500; }
+    .hero-ctas {
+      display: flex; gap: 14px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      padding: 13px 26px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 30px rgba(79,138,255,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(79,138,255,0.5); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 13px 26px;
+      border-radius: 100px;
+      font-weight: 500;
+      font-size: 14px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); background: rgba(79,138,255,0.05); }
+
+    .hero-scroll {
+      margin-top: 80px;
+      display: flex; align-items: center; gap: 12px;
+      color: var(--muted); font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 48px; height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 5vw; }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 540px;
+      margin-bottom: 56px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      max-width: 1100px;
+    }
+    .about-photo-wrap {
+      position: relative;
+    }
+    .about-photo-wrap img {
+      width: 100%;
+      max-width: 340px;
+      border-radius: 20px;
+      filter: grayscale(20%);
+      display: block;
+    }
+    .about-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 10px -10px -10px 10px;
+      border: 1px solid rgba(79,138,255,0.25);
+      border-radius: 20px;
+      z-index: -1;
+    }
+    .about-text h3 {
+      font-family: var(--font-head);
+      font-size: 22px; font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    .about-text p strong { color: var(--text); }
+    .about-text p em { color: var(--accent); font-style: normal; font-weight: 500; }
+    .about-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 24px;
+    }
+    .tag {
+      padding: 5px 14px;
+      border-radius: 100px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--bg2); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      max-width: 1100px;
+    }
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .skill-card:hover {
+      border-color: rgba(79,138,255,0.3);
+      transform: translateY(-3px);
+    }
+    .skill-card-icon {
+      width: 40px; height: 40px;
+      background: rgba(79,138,255,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+    .skill-card h4 {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .skill-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* ── TIMELINE / PARCOURS ── */
+    .timeline {
+      max-width: 720px;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+    .tl-item {
+      display: flex; gap: 32px;
+      margin-bottom: 48px;
+      position: relative;
+    }
+    .tl-dot {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      position: relative; z-index: 1;
+    }
+    .tl-content {}
+    .tl-date {
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .tl-title {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .tl-org {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .tl-desc {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--bg2); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .project-card:hover { border-color: rgba(79,138,255,0.3); transform: translateY(-4px); }
+    .project-card:hover::before { opacity: 1; }
+    .project-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .project-type {
+      font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--accent); font-weight: 600;
+    }
+    .project-date { font-size: 12px; color: var(--muted); }
+    .project-title {
+      font-family: var(--font-head);
+      font-size: 20px; font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .project-desc {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .project-results {
+      background: rgba(79,138,255,0.06);
+      border: 1px solid rgba(79,138,255,0.15);
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+    }
+    .project-results-label {
+      font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+    .project-results p {
+      font-size: 13px; color: var(--text); line-height: 1.6;
+    }
+    .project-stack {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .stack-tag {
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      font-size: 11px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    /* ── AUTO-EVAL TABLE ── */
+    .eval-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 20px;
+      font-size: 13px;
+    }
+    .eval-table th {
+      background: var(--surface);
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .eval-table td {
+      padding: 12px 16px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .eval-table tr:last-child td { border-bottom: none; }
+    .eval-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* ── COMPETENCES BUT ── */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      max-width: 1100px;
+    }
+    .comp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .comp-card:hover { border-color: rgba(79,138,255,0.3); }
+    .comp-num {
+      font-size: 11px; letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+    .comp-name {
+      font-family: var(--font-head);
+      font-size: 20px; font-weight: 700;
+      color: var(--white); margin-bottom: 10px;
+    }
+    .comp-desc {
+      color: var(--muted); font-size: 13px; line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .comp-examples {
+      list-style: none;
+    }
+    .comp-examples li {
+      font-size: 12px; color: var(--muted);
+      padding: 4px 0;
+      padding-left: 14px;
+      position: relative;
+    }
+    .comp-examples li::before {
+      content: '→';
+      position: absolute; left: 0;
+      color: var(--accent);
+    }
+
+    /* ── STAGE ── */
+    .stage-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 60px;
+      max-width: 1100px;
+      align-items: start;
+    }
+    .stage-info {}
+    .stage-badge {
+      display: inline-block;
+      background: rgba(79,138,255,0.1);
+      border: 1px solid rgba(79,138,255,0.2);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .stage-info h3 {
+      font-family: var(--font-head);
+      font-size: 26px; font-weight: 800;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .stage-info .org { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+    .stage-info p { color: var(--muted); font-size: 14px; line-height: 1.8; margin-bottom: 16px; }
+    .stage-missions {
+      list-style: none; margin-top: 16px;
+    }
+    .stage-missions li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      padding-left: 18px;
+      position: relative;
+    }
+    .stage-missions li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+    .stage-missions li:last-child { border-bottom: none; }
+
+    /* ── CONCLUSION ── */
+    #conclusion { background: var(--bg2); }
+    .conclusion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      max-width: 1100px;
+    }
+    .concl-card {
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--border);
+    }
+    .concl-card.green { border-color: rgba(52,211,153,0.2); background: rgba(52,211,153,0.04); }
+    .concl-card.yellow { border-color: rgba(251,191,36,0.2); background: rgba(251,191,36,0.04); }
+    .concl-card.blue { border-color: rgba(79,138,255,0.2); background: rgba(79,138,255,0.04); }
+    .concl-card.purple { border-color: rgba(124,92,252,0.2); background: rgba(124,92,252,0.04); }
+    .concl-icon { font-size: 22px; margin-bottom: 10px; }
+    .concl-label {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      font-weight: 700; margin-bottom: 8px;
+    }
+    .concl-card.green .concl-label { color: #34d399; }
+    .concl-card.yellow .concl-label { color: #fbbf24; }
+    .concl-card.blue .concl-label { color: var(--accent); }
+    .concl-card.purple .concl-label { color: #a78bfa; }
+    .concl-card p { color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+    /* ── CONTACT ── */
+    .contact-inner {
+      max-width: 600px;
+    }
+    .contact-links {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      margin-top: 36px;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .contact-link span { font-size: 18px; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 24px 5vw;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      color: var(--muted); font-size: 12px;
+    }
+
+    /* ── FADE IN ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .about-grid, .stage-layout { grid-template-columns: 1fr; gap: 40px; }
+      .nav-links { display: none; }
+      .hero-title { letter-spacing: -1px; }
+    }
   </style>
 </head>
+<body>
 
-<body class="dark">
-  <a href="#home" class="scrolltotop"><i class="faa-bounce animated fa fa-long-arrow-up"></i></a>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
- 
-  <div id="fullpage">
-    <div id="follower"></div>
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">ALS<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#parcours">Parcours</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#stage">Stage</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <!-- ====== HEADER ====== -->
-    <header id="sticker" class="header-top">
-      <div class="container-fulid">
-        <div class="col-md-2 col-sm-2">
-          <div class="logo">
-            <a href="#">
-              <img src="./assets/img/logo/a.png" alt="Logo ALS">
-            </a>
-          </div>
-        </div>
-
-        <div class="col-md-9 col-sm-9 text-center">
-          <div class="mainmenu">
-            <ul id="nav" class="list-inline">
-              <li><a href="#home">Accueil</a></li>
-              <li><a href="#about">À propos</a></li>
-              <li><a href="#resume">Parcours</a></li>
-              <!-- Ajout des ancres du dossier demandé -->
-              <li><a href="#dossier-intro">Dossier</a></li>
-              <li><a href="#competences">Compétences</a></li>
-              <li><a href="#stage">Stage</a></li>
-              <li><a href="#conclusion">Conclusion</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-
-        
-      </div>
-    </header>
-
-    <!-- ====== HERO ====== -->
-    <section id="home" class="header-hero-area section">
-      <div class="container-line">
-        <div class="container-line-center">
-          <div class="line-item one"></div>
-          <div class="line-item two"></div>
-          <div class="line-item three"></div>
-          <div class="line-item four"></div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-md-7">
-            <div class="slider-contents">
-              <div class="slider-text">
-                <span class="intro">hello</span>
-                <h1>I’m <span> Abou Lacine SANOGO </span></h1>
-                <p>
-                  Je suis <span>Développeur Full Stack & Data</span>, étudiant en BUT Informatique & Sciences des Données à l'Université Sorbonne Paris Nord.
-                  Je recherche un <strong>stage de 8–10 semaines à partir de JUIN</strong> pour contribuer sur des projets web et data (Python, JS/React, SQL, BI).
-                </p>
-              </div>
-              <a href="CV_version2 (1).pdf" class="comman-btn download-btn" download>
-                TÉLÉCHARGER MON CV
-                <img src="assets/img/brand-icons/hover-icon.png" alt="" class="">
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== SOCIALS ====== -->
-    <section class="hero-social-link-area">
-      <div class="container-fulid">
-        <div class="hero-social-link">
-          <ul class="list-inline">
-            <li><a href="https://github.com/lc945" target="_blank" rel="noopener"><span class="ti-github"></span></a></li>
-            <li><a href="https://www.linkedin.com/in/abou-lacine-sanogo-966493253" target="_blank" rel="noopener"><span class="ti-linkedin"></span></a></li>
-          </ul>
-        </div>
-        <div class="scroll-down text-right">
-          <a href="#about" class="scroll-down-btn">scroll down
-            <img src="assets/img/brand-icons/scroll-down-icon.png" alt="" class="faa-passing animated">
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== ABOUT ====== -->
-    <section id="about" class="about-area section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-5">
-            <div class="about-left">
-              <img src="./assets/img/logo/image0.png" alt="Photo Abou Lacine SANOGO">
-            </div>
-          </div>
-          <div class="col-md-7">
-            <div class="about-right">
-              <h2>À propos</h2>
-              <p>
-                Étudiant en BUT Informatique & Sciences des Données (2e année – passerelle), j’ai travaillé sur des projets
-                de <strong>développement web</strong> (HTML/CSS/JS, React/Tailwind) et de <strong>data</strong> (Python, Pandas, Matplotlib, Power BI).
-                J’aime construire des interfaces propres, des API claires et transformer des données brutes en insights
-                actionnables. Objectif : évoluer en <strong>Full Stack orienté Data</strong>.
-              </p>
-            </div>
-            <div class="about-meta">
-              <div class="about-meta-links">
-                <ul class="list-inline">
-                  <li>
-                    <a href="#contact" class="comman-btn about-me-btn">me contacter
-                      <img src="assets/img/brand-icons/hover-icon.png" alt="" class="">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="CV STAGE AMELIORER.pdf" class="comman-btn about-me-btn-2" target="_blank">MON CV</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Compétences (résumé) -->
-        <div class="section-title"><h2>Compétences</h2></div>
-        <div class="row no-margin">
-          <div class="col-md-6 no-padding">
-            <div class="resume-left">
-              <div class="resume-content resume-content-left mb-30 mr-40">
-                <h3>Techniques</h3>
-                <p>
-                  • Langages : Python, JavaScript, Java, PHP, HTML/CSS<br>
-                  • Bases de données : PostgreSQL/SQL<br>
-                  • Data & Viz : Pandas, Matplotlib, Power BI<br>
-                  • Web : React/Tailwind (front), API REST (notions)<br>
-                  • Outils : Git/GitHub, VS Code, Bootstrap, Odoo
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 no-padding">
-            <div class="resume-left">
-              <div class="resume-content resume-content-left mb-30 mr-40">
-                <h3>Transverses</h3>
-                <p>
-                  • Communication, travail d’équipe, esprit critique, éthique<br>
-                  • Anglais : courant (écrit & oral)<br>
-                  • Centres d’intérêt : Basketball, Football, sports mécaniques
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ====== PARCOURS ====== -->
-    <section id="resume" class="resume-area section-padding section">
-      <div class="container-line"><div class="container-line-center">
-        <div class="line-item one"></div><div class="line-item two"></div>
-        <div class="line-item three"></div><div class="line-item four"></div>
-      </div></div>
-
-      <div class="container">
-        <div class="row"><div class="col-md-12">
-          <div class="section-title">
-            <h2>Parcours</h2>
-            <p>Formation, projets/SAÉ et expériences récentes</p>
-          </div>
-        </div></div>
-
-        <div class="row no-margin">
-          <div class="col-md-6 no-padding">
-            <div class="resume-left">
-              <h2 class="resume-heading"><span class="ti-crown"></span>Éducation :</h2>
-            </div>
-            <div class="resume-content resume-content-left mb-30 mr-40">
-              <span class="resume-date">2023 - 2025</span>
-              <h3>BUT Informatique & Sciences des Données</h3>
-              <a href="#"><h4>Université Sorbonne Paris Nord / IUT de Villetaneuse</h4></a>
-              <p>Data & Dev : projets SAÉ, data viz, web, management de projet.</p>
-            </div>
-            <div class="resume-content resume-content-left mb-30 mr-40">
-              <span class="resume-date">2022 - 2023</span>
-              <h3>BTS SIO (option SISR)</h3>
-              <a href="#"><h4>ESTYA University (Paris)</h4></a>
-              <p>Architecture réseau, web design, bases techniques.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 no-padding">
-            <div class="resume-left">
-              <h2 class="resume-heading"><span class="ti-briefcase"></span>Expériences & Projets :</h2>
-            </div>
-
-            <div class="resume-content mb-30 ml-40">
-              <span class="resume-date">2025</span>
-              <h3><img src="assets/img/brand-icons/brand-2.png" alt=""> Stage – Plateforme <strong>Marchés BTP</strong></h3>
-              <p>
-                Conception d’un site web et d’une application mobile de mise en relation entreprises & freelances BTP.<br>
-                • UI/UX + intégration <strong>React + Tailwind</strong> (maquettes Ready.io)<br>
-                • Dashboards : Entreprise, Freelance, Admin (contrats, appels d’offres, paiements, litiges)<br>
-                • Formulaires : inscriptions, création d’appels d’offres/contrats, upload de documents<br>
-                • Préparation back-end (endpoints, modèles DB, sécurité)
-              </p>
-              <a href="#"><h4>Paris (FR)</h4></a>
-            </div>
-
-            <div class="resume-content mb-30 ml-40">
-              <span class="resume-date">2024</span>
-              <h3><img src="assets/img/brand-icons/brand-2.png" alt=""> SAÉ – Analyse & sélection Parcoursup</h3>
-              <p>
-                Pipeline Python (Pandas) : critères + note finale pondérée, classement automatisé (&gt;1000 candidats).<br>
-                Data viz (Matplotlib) + tableaux HTML/CSS pour rapports.<br>
-                <em>Impact :</em> -50% temps manuel, +20% rapidité de décision.
-              </p>
-              <a href="#"><h4>Université Sorbonne Paris Nord</h4></a>
-            </div>
-
-            <div class="resume-content mb-30 ml-40">
-              <span class="resume-date">2024</span>
-              <h3><img src="assets/img/brand-icons/brand-2.png" alt=""> Développement web – PME (bénévolat)</h3>
-              <p>
-                Pages publicitaires & mini-sites (HTML/CSS/JS, SQL).<br>
-                Optimisation BDD (structures & requêtes).<br>
-                <em>Résultats :</em> +20% trafic (3 mois), ~15% de conversion.
-              </p>
-              <a href="#"><h4>Paris</h4></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== DOSSIER – INTRO ====== -->
-    <section id="dossier-intro" class="about-area section-padding section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Introduction du dossier</h2>
-          <p>Logique de parcours, choix d’orientation et ambitions professionnelles</p>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <p>
-              Mon parcours en BUT Informatique & Sciences des Données m’a permis d’explorer deux axes complémentaires :
-              <strong>développement web</strong> (interfaces propres, logique front) et <strong>analyse de données</strong> (pipeline, visualisation,
-              restitution). Je souhaite évoluer comme <strong>développeur Full-Stack orienté Data</strong>, capable de concevoir des
-              applications utiles et pilotées par la donnée. Le présent dossier met en valeur des <em>traces</em> issues de SAÉ
-              et de projets, analyse mes acquis et identifie des axes de progression.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== DOSSIER – SAÉ & AUTO-ÉVALUATION ====== -->
-    <section id="sae" class="resume-area section-padding section">
-      <div class="container-line"><div class="container-line-center">
-        <div class="line-item one"></div><div class="line-item two"></div>
-        <div class="line-item three"></div><div class="line-item four"></div>
-      </div></div>
-      <div class="container">
-        <div class="section-title">
-          <h2>SAÉ & traces</h2>
-          <p>Mémos, résultats, auto-évaluation</p>
-        </div>
-
-        <!-- SAÉ Parcoursup -->
-        <div class="resume-content mb-30">
-          <span class="resume-date">SAÉ Data</span>
-          <h3>Analyse & sélection Parcoursup (Python/Pandas/Matplotlib)</h3>
-          <p>
-            <strong>Objectif :</strong> classer &gt;1000 candidats via critères pondérés.<br>
-            <strong>Tâches :</strong> nettoyage, feature engineering, score final, export/visualisation, tableaux HTML.<br>
-            <strong>Résultats :</strong> <em>-50% de temps manuel</em>, <em>+20% rapidité décision</em>.
-          </p>
-          <div class="table-responsive">
-            <table class="table">
-              <thead><tr>
-                <th>Déroulement</th><th>Points forts</th><th>Points de vigilance</th><th>Bonnes surprises</th><th>Problèmes</th><th>Acquis / À refaire</th>
-              </tr></thead>
-              <tbody><tr>
-                <td>Itératif : nettoyage → scoring → viz → rapport</td>
-                <td>Automatisation, clarté des graphes</td>
-                <td>Documenter mieux les hypothèses</td>
-                <td>Boxplots très parlants pour le jury</td>
-                <td>CSV hétérogènes (encodage)</td>
-                <td>Normaliser plus tôt, script d’import générique</td>
-              </tr></tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Projet PME -->
-        <div class="resume-content mb-30">
-          <span class="resume-date">Projet pro</span>
-          <h3>Développement web – PME (HTML/CSS/JS, SQL)</h3>
-          <p>
-            <strong>Objectif :</strong> pages publicitaires & mini-sites pour vitrine produits/services.<br>
-            <strong>Tâches :</strong> intégration front, formulaires, liaison SQL, optimisation requêtes.<br>
-            <strong>Résultats :</strong> <em>+20% trafic (3 mois)</em>, ~<em>15% conversion</em>.
-          </p>
-          <div class="table-responsive">
-            <table class="table">
-              <thead><tr>
-                <th>Déroulement</th><th>Points forts</th><th>Vigilance</th><th>Surprises</th><th>Problèmes</th><th>Acquis / À refaire</th>
-              </tr></thead>
-              <tbody><tr>
-                <td>Maquettes → intégration → mesure</td>
-                <td>UI simple, messages clairs</td>
-                <td>Suivi d’analytics plus régulier</td>
-                <td>ROI rapide via pages ciblées</td>
-                <td>Variations de perf selon hébergeur</td>
-                <td>AB-tests plus tôt, CDN par défaut</td>
-              </tr></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== DOSSIER – 6 COMPÉTENCES BUT ====== -->
-    <section id="competences" class="about-area section-padding section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Compétences du BUT (synthèse détaillée)</h2>
-          <p>Outils, expériences, acquis</p>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6">
-            <h3>1) Réaliser</h3>
-            <p>Concevoir et développer : React/Tailwind (front), Python/JS, API REST (notions), Git/GitHub.</p>
-            <ul>
-              <li>Marchés BTP : pages d’inscription, dashboards, formulaires multi-étapes.</li>
-              <li>PME : mini-sites & pages produit, intégration responsive.</li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <h3>2) Optimiser</h3>
-            <p>Améliorer performance/qualité : normalisation des données, scripts d’import, requêtes SQL efficaces.</p>
-            <ul>
-              <li>SAÉ : réduction du temps de traitement (-50%).</li>
-              <li>PME : gains trafic & conversion grâce à optimisations front.</li>
-            </ul>
-          </div>
-
-          <div class="col-md-6">
-            <h3>3) Administrer</h3>
-            <p>Modéliser & manipuler la donnée : PostgreSQL, schémas simples, scripts de migration, sauvegardes.</p>
-            <ul>
-              <li>PME : structure BDD + optimisation requêtes.</li>
-              <li>Marchés BTP : préparation des modèles (freelances, entreprises, contrats).</li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <h3>4) Gérer</h3>
-            <p>Organisation & suivi : Git flow, issues, to-do structurée, lecture d’indicateurs (Power BI).</p>
-            <ul>
-              <li>SAÉ : rapports clairs (viz + tableaux HTML).</li>
-              <li>Marchés BTP : priorisation des écrans (inscriptions → contrats → paiements).</li>
-            </ul>
-          </div>
-
-          <div class="col-md-6">
-            <h3>5) Conduire</h3>
-            <p>Participer à la conduite de projet : objectifs, jalons, revue de maquettes, retours utilisateurs.</p>
-            <ul>
-              <li>Marchés BTP : boucles de feedback rapides avec maquettes Ready.io.</li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <h3>6) Collaborer</h3>
-            <p>Communication, partage, documentation pragmatique.</p>
-            <ul>
-              <li>Travail en binôme (PME, Marchés BTP) ; restitution aux non-techniques (SAÉ).</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== DOSSIER – STAGE ====== -->
-    <section id="stage" class="resume-area section-padding section">
-      <div class="container-line"><div class="container-line-center">
-        <div class="line-item one"></div><div class="line-item two"></div>
-        <div class="line-item three"></div><div class="line-item four"></div>
-      </div></div>
-      <div class="container">
-        <div class="section-title">
-          <h2>Volet Stage – Marchés BTP</h2>
-          <p>Missions, outils, analyse critique (liées aux 6 compétences)</p>
-        </div>
-
-        <div class="resume-content mb-30">
-          <span class="resume-date">2025 – 2 mois</span>
-          <h3>Plateforme de mise en relation (type marketplace)</h3>
-          <p>
-            <strong>Missions :</strong> intégration front (React/Tailwind), dashboards (Entreprise, Freelance, Admin),
-            formulaires avancés (inscriptions, contrats, appels d’offres), upload de documents, logique responsive.<br>
-            <strong>Outils :</strong> React, Tailwind, JavaScript, HTML/CSS, Git/GitHub. Pré-cadrage back (endpoints, modèles, sécurité).
-          </p>
-          <h4>Analyse & auto-évaluation</h4>
-          <div class="table-responsive">
-            <table class="table">
-              <thead><tr>
-                <th>Points forts</th><th>Points de vigilance</th><th>Bonnes surprises</th><th>Vrais problèmes</th><th>Acquis pour la suite</th>
-              </tr></thead>
-              <tbody><tr>
-                <td>Découpage propre en composants, design fidèle aux maquettes</td>
-                <td>Standardiser plus tôt les conventions (naming, routes, dossiers)</td>
-                <td>Gains rapides grâce aux composants réutilisables</td>
-                <td>Gestion d’uploads multiples et états d’erreur</td>
-                <td>Mettre en place un design system léger + validations front uniformes</td>
-              </tr></tbody>
-            </table>
-          </div>
-          <p class="mb-0"><strong>Correspondance compétences :</strong> Réaliser (intégration), Optimiser (refactor components), Administrer (pré-modèles), Gérer/Conduire (parcours utilisateur), Collaborer (binôme, retours).</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== DOSSIER – CONCLUSION ====== -->
-    <section id="conclusion" class="about-area section-padding section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Conclusion</h2>
-          <p>Points forts, vigilance, bonnes pratiques, acquis pour la suite</p>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <ul>
-              <li><strong>Points forts :</strong> clarté des livrables (viz, tableaux HTML), intégration front propre, sens de la donnée.</li>
-              <li><strong>Points de vigilance :</strong> documenter plus tôt les hypothèses/choix ; homogénéiser les conventions.</li>
-              <li><strong>Bonnes pratiques :</strong> composants réutilisables, pipelines de données testables, to-do/issue tracking.</li>
-              <li><strong>Acquis pour la suite :</strong> renforcer l’automatisation (imports, validations), intégrer un design system léger, connecter le front au back sécurisé.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== CONTACT ====== -->
-    <section id="contact" class="contact-form-area section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-7">
-            <div class="contact-text">
-              <p class="contact-info">
-                <br><span>Just Say Hello !</span>
-                <img src="assets/img/brand-icons/indigatore-icon.png" alt="" class="faa-passing animated">
-              </p>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="contact-form-area-wrapper">
-              <form id="digita-contact-form" action="php/contact-mail.php" method="POST">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="Name" name="name" placeholder="NOM">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="FirstName" name="firstname" placeholder="Prénom">
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" id="Email" name="email" placeholder="Mail">
-                </div>
-                <div class="form-group">
-                  <textarea id="Message" class="form-control" rows="3" name="message" placeholder="Description du projet"></textarea>
-                </div>
-                <button type="submit" class="comman-btn about-me-btn">
-                  Envoyer <img src="assets/img/brand-icons/hover-icon.png" alt="" class="">
-                </button>
-                <p class="contact-send-message"></p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== COORDONNÉES ====== -->
-    <section class="location-area section">
-      <div class="container-line"><div class="container-line-center">
-        <div class="line-item one"></div><div class="line-item two"></div>
-        <div class="line-item three"></div><div class="line-item four"></div>
-      </div></div>
-      <div class="container">
-        <div class="row"><div class="col-md-12">
-          <div class="location-link">
-            <ul>
-              <li><p class="single-contact-info"><a href="tel:+33611745229">+33 6 11 74 52 29</a></p></li>
-              <li><p class="single-contact-info"><a href="mailto:abousanogo419@gmail.com">abousanogo419@gmail.com</a></p></li>
-              <li><p>Paris, France</p></li>
-            </ul>
-          </div>
-          <div class="hero-social-link">
-            <ul class="list-inline">
-              <li><a href="https://github.com/lc945" target="_blank" rel="noopener"><span class="ti-github"></span></a></li>
-              <li><a href="https://www.linkedin.com/in/abou-lacine-sanogo-966493253" target="_blank" rel="noopener"><span class="ti-linkedin"></span></a></li>
-            </ul>
-          </div>
-        </div></div>
-      </div>
-    </section>
-
-    <!-- ====== FOOTER ====== -->
-    <section class="footer-bottom-area section">
-      <div class="container">
-        <div class="row"><div class="col-md-12">
-          <div class="footer-bottom-text">
-            <p>Abou Lacine SANOGO © Portfolio</p>
-          </div>
-        </div></div>
-      </div>
-    </section>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Disponible dès le 9 mars 2026</div>
+    <h1 class="hero-title">
+      Abou Lacine<br>
+      <span class="name">SANOGO</span><br>
+      <span class="line2">Full Stack Dev.</span>
+    </h1>
+    <p class="hero-sub">
+      Étudiant en <strong>BUT 3 Informatique</strong> à l'IUT de Villetaneuse.
+      Je construis des applications web modernes et des pipelines de données.
+      À la recherche d'un <strong>stage de 4 à 6 mois</strong> à partir de mars 2026.
+    </p>
+    <div class="hero-ctas">
+      <a href="CV_Abou_Lacine_SANOGO.pdf" class="btn-primary" download>
+        ↓ Télécharger mon CV
+      </a>
+      <a href="#contact" class="btn-ghost">Me contacter →</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
   </div>
+</section>
 
-  <!-- JS -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/jquery.slicknav.min.js"></script>
-  <script src="assets/js/scrollclass.min.js"></script>
-  <script src="assets/js/venobox.js"></script>
-  <script src="assets/js/plugins.js"></script>
-  <script src="assets/js/main.js"></script>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">À propos</div>
+  <div class="about-grid">
+    <div class="about-photo-wrap fade-up">
+      <img src="assets/img/logo/image0.png" alt="Photo Abou Lacine SANOGO"/>
+    </div>
+    <div class="about-text fade-up">
+      <h3>Développeur Full Stack,<br>passionné par les données.</h3>
+      <p>
+        Je suis entré dans l'informatique avec une vision claire : créer des outils qui <strong>ont vraiment un impact</strong>. Pendant ces 3 années de BUT, j'ai développé une double culture — <em>développement web</em> (React, Node, Flutter) et <em>data</em> (Python, Pandas, SQL) — en travaillant toujours sur des projets concrets, pas seulement dans des salles de cours.
+      </p>
+      <p>
+        Ce qui me définit dans un projet : je ne lâche pas avant que ça marche vraiment. Que ce soit sur la plateforme <strong>Marchés BTP</strong> (mis en production, utilisable) ou sur <strong>namiCV</strong> (mon projet perso lancé de zéro), je m'engage jusqu'aux résultats mesurables.
+      </p>
+      <p>
+        Mon objectif : évoluer en <em>développeur Full Stack orienté Data</em>, capable de concevoir des applications pilotées par la donnée.
+      </p>
+      <div class="about-tags">
+        <span class="tag">React.js</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Flutter</span>
+        <span class="tag">Python</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Git</span>
+        <span class="tag">Anglais courant</span>
+        <span class="tag">Paris</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS -->
+<section id="parcours">
+  <div class="section-label">Parcours</div>
+  <div class="section-title">Formation & expériences</div>
+  <p class="section-desc">Mon chemin de la formation aux projets réels.</p>
+  <div class="timeline fade-up">
+
+    <div class="tl-item">
+      <div class="tl-dot">🎓</div>
+      <div class="tl-content">
+        <div class="tl-date">Depuis septembre 2025</div>
+        <div class="tl-title">BUT 3 — Réalisation d'Applications</div>
+        <div class="tl-org">IUT Villetaneuse, Université Sorbonne Paris Nord</div>
+        <div class="tl-desc">3ᵉ année centrée sur la réalisation d'applications complètes. Projets en équipe, architecture logicielle, méthodes agiles.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">💼</div>
+      <div class="tl-content">
+        <div class="tl-date">Juillet – Septembre 2025</div>
+        <div class="tl-title">Stage — Développeur Full Stack</div>
+        <div class="tl-org">IMT Starter, Évry-Courcouronnes</div>
+        <div class="tl-desc">Développement de la plateforme <strong style="color:var(--text)">Marchés BTP</strong> — marketplace de mise en relation entreprises & freelances du BTP. Intégration React.js, dashboards, formulaires multi-étapes.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">🛠</div>
+      <div class="tl-content">
+        <div class="tl-date">Depuis août 2025</div>
+        <div class="tl-title">namiCV — Projet personnel</div>
+        <div class="tl-org">Paris (solo)</div>
+        <div class="tl-desc">Backend d'une app de génération automatisée de CV et lettres de motivation. Node.js + Supabase. Génération documentaire personnalisée selon profil utilisateur.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">📱</div>
+      <div class="tl-content">
+        <div class="tl-date">Depuis novembre 2025</div>
+        <div class="tl-title">App mobile nutrition — Projet académique</div>
+        <div class="tl-org">IUT Villetaneuse, équipe de 5</div>
+        <div class="tl-desc">Application Flutter de gestion de recettes et suivi nutritionnel. Architecture MVVM, SQLite, REST API, workflow Git agile (branches, PRs, sprints).</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">🎓</div>
+      <div class="tl-content">
+        <div class="tl-date">Oct. 2024 – Mai 2025</div>
+        <div class="tl-title">BUT 2 — Informatique & Sciences des Données</div>
+        <div class="tl-org">Université Sorbonne Paris Nord / IUT Villetaneuse</div>
+        <div class="tl-desc">Axe data : Python, Pandas, Matplotlib, Power BI. Projets SAÉ, management de projet, data viz.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projets & SAÉ</div>
+  <div class="section-title">Ce que j'ai construit</div>
+  <p class="section-desc">Des traces concrètes avec des résultats mesurables.</p>
+  <div class="projects-grid">
+
+    <!-- namiCV -->
+    <div class="project-card fade-up">
+      <div class="project-meta">
+        <span class="project-type">Projet personnel</span>
+        <span class="project-date">Août 2025 →</span>
+      </div>
+      <div class="project-title">namiCV</div>
+      <div class="project-desc">
+        Application de génération automatisée de CV et lettres de motivation personnalisés. L'utilisateur renseigne ses informations, l'app produit des documents prêts-à-l'emploi via des modèles dynamiques.
+      </div>
+      <div class="project-results">
+        <div class="project-results-label">Résultat</div>
+        <p>Génération automatisée adaptée à chaque profil — temps de création de documents réduit drastiquement.</p>
+      </div>
+      <div class="project-stack">
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">Supabase</span>
+        <span class="stack-tag">API REST</span>
+      </div>
+    </div>
+
+    <!-- Marchés BTP -->
+    <div class="project-card fade-up">
+      <div class="project-meta">
+        <span class="project-type">Stage professionnel</span>
+        <span class="project-date">Juil. – Sept. 2025</span>
+      </div>
+      <div class="project-title">Marchés BTP</div>
+      <div class="project-desc">
+        Marketplace de mise en relation entreprises & freelances dans le secteur BTP. Conversion complète des maquettes en composants React, dashboards multi-rôles (Freelance, Entreprise, Admin), formulaires multi-étapes, upload de documents.
+      </div>
+      <div class="project-results">
+        <div class="project-results-label">Résultat</div>
+        <p>Interface entièrement fonctionnelle, fidèle aux maquettes. Navigation fluide entre toutes les sections. Inscription simplifiée pour freelances et entreprises.</p>
+      </div>
+      <div class="project-stack">
+        <span class="stack-tag">React.js</span>
+        <span class="stack-tag">TailwindCSS</span>
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">JavaScript</span>
+      </div>
+    </div>
+
+    <!-- App mobile -->
+    <div class="project-card fade-up">
+      <div class="project-meta">
+        <span class="project-type">Projet académique</span>
+        <span class="project-date">Nov. 2025 →</span>
+      </div>
+      <div class="project-title">NutriTrack — App mobile</div>
+      <div class="project-desc">
+        Application cross-platform (Android/iOS) de gestion de recettes et suivi nutritionnel. Architecture MVVM, données hors-ligne, sync backend. Collaboré en équipe de 5 via Git agile (sprints, daily, retros).
+      </div>
+      <div class="project-results">
+        <div class="project-results-label">Résultat</div>
+        <p>App fonctionnelle testée par des étudiants. Code structuré, documenté et réutilisable pour futurs projets.</p>
+      </div>
+      <div class="project-stack">
+        <span class="stack-tag">Flutter</span>
+        <span class="stack-tag">Dart</span>
+        <span class="stack-tag">SQLite</span>
+        <span class="stack-tag">REST API</span>
+        <span class="stack-tag">Git</span>
+      </div>
+    </div>
+
+    <!-- SAÉ Parcoursup -->
+    <div class="project-card fade-up">
+      <div class="project-meta">
+        <span class="project-type">SAÉ Data</span>
+        <span class="project-date">2024</span>
+      </div>
+      <div class="project-title">Analyse Parcoursup</div>
+      <div class="project-desc">
+        Pipeline Python de classement automatisé de +1000 candidats Parcoursup. Critères pondérés, score final, data viz (Matplotlib), export tableaux HTML pour rapports jury.
+      </div>
+      <div class="project-results">
+        <div class="project-results-label">Impact mesuré</div>
+        <p>−50% de temps de traitement manuel · +20% de rapidité de décision pour le jury</p>
+      </div>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">Pandas</span>
+        <span class="stack-tag">Matplotlib</span>
+        <span class="stack-tag">HTML/CSS</span>
+      </div>
+      <div style="overflow-x:auto; margin-top: 20px;">
+        <table class="eval-table">
+          <thead><tr>
+            <th>Points forts</th>
+            <th>Vigilance</th>
+            <th>Problèmes rencontrés</th>
+            <th>Acquis</th>
+          </tr></thead>
+          <tbody><tr>
+            <td>Automatisation, lisibilité des graphes, boxplots parlants pour le jury</td>
+            <td>Mieux documenter les hypothèses de pondération dès le début</td>
+            <td>CSV hétérogènes (encodages différents), données manquantes</td>
+            <td>Normaliser les données plus tôt, créer un script d'import générique réutilisable</td>
+          </tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PME -->
+    <div class="project-card fade-up">
+      <div class="project-meta">
+        <span class="project-type">Projet bénévole</span>
+        <span class="project-date">2024</span>
+      </div>
+      <div class="project-title">Site vitrine PME</div>
+      <div class="project-desc">
+        Pages publicitaires et mini-sites pour une PME parisienne. Intégration front, formulaires, liaison SQL, optimisation des requêtes BDD. Mise en ligne et suivi des métriques sur 3 mois.
+      </div>
+      <div class="project-results">
+        <div class="project-results-label">Impact mesuré</div>
+        <p>+20% de trafic en 3 mois · ~15% de taux de conversion</p>
+      </div>
+      <div class="project-stack">
+        <span class="stack-tag">HTML/CSS</span>
+        <span class="stack-tag">JavaScript</span>
+        <span class="stack-tag">SQL</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPÉTENCES BUT -->
+<section id="competences">
+  <div class="section-label">Référentiel BUT</div>
+  <div class="section-title">6 compétences — synthèse</div>
+  <p class="section-desc">Ce que j'ai appris à faire, prouvé projet par projet.</p>
+  <div class="comp-grid fade-up">
+
+    <div class="comp-card">
+      <div class="comp-num">Compétence 01</div>
+      <div class="comp-name">Réaliser</div>
+      <div class="comp-desc">Concevoir et développer des applications complètes, du front au back.</div>
+      <ul class="comp-examples">
+        <li>Marchés BTP : composants React modulaires, dashboards, formulaires multi-étapes</li>
+        <li>namiCV : API CRUD, gestion de modèles de documents, génération automatisée</li>
+        <li>PME : pages responsive, formulaires, intégration SQL</li>
+      </ul>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-num">Compétence 02</div>
+      <div class="comp-name">Optimiser</div>
+      <div class="comp-desc">Améliorer la performance, la qualité et la maintenabilité du code.</div>
+      <ul class="comp-examples">
+        <li>SAÉ : −50% temps de traitement grâce à la normalisation et scripts génériques</li>
+        <li>PME : optimisation requêtes SQL, gains trafic/conversion mesurés</li>
+        <li>NutriTrack : code structuré, documenté, réutilisable (MVVM)</li>
+      </ul>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-num">Compétence 03</div>
+      <div class="comp-name">Administrer</div>
+      <div class="comp-desc">Modéliser et gérer des bases de données fiables et efficaces.</div>
+      <ul class="comp-examples">
+        <li>PME : structuration BDD + optimisation requêtes</li>
+        <li>Marchés BTP : pré-modélisation (freelances, entreprises, contrats, appels d'offres)</li>
+        <li>NutriTrack : SQLite local avec repositories et sync API</li>
+      </ul>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-num">Compétence 04</div>
+      <div class="comp-name">Gérer</div>
+      <div class="comp-desc">Organiser le travail, suivre l'avancement et restituer clairement.</div>
+      <ul class="comp-examples">
+        <li>SAÉ : rapports viz + tableaux HTML pour le jury</li>
+        <li>NutriTrack : gestion agile, sprints, daily standups, retrospectives</li>
+        <li>Marchés BTP : priorisation des écrans (inscriptions → contrats → paiements)</li>
+      </ul>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-num">Compétence 05</div>
+      <div class="comp-name">Conduire</div>
+      <div class="comp-desc">Participer à la conduite d'un projet en méthodes agiles.</div>
+      <ul class="comp-examples">
+        <li>Marchés BTP : boucles de feedback rapides avec maquettes</li>
+        <li>NutriTrack : équipe de 5, pull requests, revues de code, branches Git</li>
+      </ul>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-num">Compétence 06</div>
+      <div class="comp-name">Collaborer</div>
+      <div class="comp-desc">Communiquer, documenter et travailler efficacement en équipe.</div>
+      <ul class="comp-examples">
+        <li>NutriTrack : collaboration équipe de 5, documentation technique</li>
+        <li>SAÉ : restitution accessible pour un jury non-technique</li>
+        <li>PME & stage : travail en binôme, retours itératifs</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- STAGE -->
+<section id="stage">
+  <div class="section-label">Volet stage</div>
+  <div class="section-title">Marchés BTP — Analyse critique</div>
+  <p class="section-desc">Mon expérience professionnelle de 2 mois chez IMT Starter.</p>
+  <div class="stage-layout fade-up">
+    <div class="stage-info">
+      <div class="stage-badge">Juillet – Septembre 2025 · 2 mois</div>
+      <h3>Plateforme Marchés BTP</h3>
+      <div class="org">IMT Starter · Évry-Courcouronnes</div>
+      <p>Marketplace B2B de mise en relation entre entreprises du BTP et freelances (maçons, électriciens, plombiers…). Projet from-scratch, besoin réel, livraison attendue.</p>
+      <p><strong style="color:var(--text)">Mon rôle :</strong> développeur front principal — conversion des maquettes HTML/CSS en composants React, implémentation des interfaces dynamiques, logique responsive, upload de documents.</p>
+      <ul class="stage-missions">
+        <li>Composants React modulaires et réutilisables (Tailwind)</li>
+        <li>Dashboard Entreprise : offres, contrats, candidatures</li>
+        <li>Dashboard Freelance : profil, missions, documents</li>
+        <li>Inscription multi-étapes avec validation et upload (Kbis, assurance…)</li>
+        <li>Filtres avancés et pages d'appels d'offres</li>
+        <li>Pré-cadrage backend : endpoints, modèles BDD, sécurité</li>
+      </ul>
+    </div>
+    <div>
+      <div style="overflow-x:auto;">
+        <table class="eval-table">
+          <thead><tr>
+            <th>Points forts</th>
+            <th>Points de vigilance</th>
+            <th>Bonnes surprises</th>
+            <th>Vrais problèmes</th>
+            <th>Acquis pour la suite</th>
+          </tr></thead>
+          <tbody><tr>
+            <td>Découpage propre en composants, rendu fidèle aux maquettes, navigation fluide</td>
+            <td>Conventions à standardiser plus tôt (naming, routes, structure dossiers)</td>
+            <td>Gains de productivité rapides grâce aux composants réutilisables</td>
+            <td>Gestion des uploads multiples et des états d'erreur côté front</td>
+            <td>Mettre en place un design system léger dès le début + validations uniformes</td>
+          </tr></tbody>
+        </table>
+      </div>
+      <div style="margin-top: 24px; padding: 20px; background: var(--surface); border-radius: 12px; border: 1px solid var(--border);">
+        <div class="section-label" style="margin-bottom: 8px;">Correspondance compétences BUT</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;">
+          <span class="tag">✓ Réaliser</span>
+          <span class="tag">✓ Optimiser</span>
+          <span class="tag">✓ Administrer</span>
+          <span class="tag">✓ Gérer</span>
+          <span class="tag">✓ Conduire</span>
+          <span class="tag">✓ Collaborer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion">
+  <div class="section-label">Conclusion</div>
+  <div class="section-title">Ce que je retiens</div>
+  <p class="section-desc">Bilan honnête de 3 ans de formation.</p>
+  <div class="conclusion-grid fade-up">
+    <div class="concl-card green">
+      <div class="concl-icon">✓</div>
+      <div class="concl-label">Points forts</div>
+      <p>Clarté des livrables (visualisations, tableaux HTML), intégration front propre et fidèle, sens de la donnée, capacité à aller jusqu'au résultat mesurable.</p>
+    </div>
+    <div class="concl-card yellow">
+      <div class="concl-icon">⚠</div>
+      <div class="concl-label">Points de vigilance</div>
+      <p>Documenter plus tôt les hypothèses et choix techniques. Homogénéiser les conventions de code (naming, structure) dès le démarrage d'un projet.</p>
+    </div>
+    <div class="concl-card blue">
+      <div class="concl-icon">◆</div>
+      <div class="concl-label">Bonnes pratiques</div>
+      <p>Composants réutilisables, pipelines de données testables, to-do/issue tracking, revues de code systématiques.</p>
+    </div>
+    <div class="concl-card purple">
+      <div class="concl-icon">→</div>
+      <div class="concl-label">Acquis pour la suite</div>
+      <p>Renforcer l'automatisation (imports, validations), intégrer un design system léger, connecter proprement le front à un back sécurisé.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <div class="section-title">Travaillons ensemble.</div>
+  <div class="contact-inner fade-up">
+    <p style="color:var(--muted); max-width:480px; margin-bottom: 8px;">
+      Disponible pour un stage de 4 à 6 mois à partir du 9 mars 2026. N'hésitez pas à me contacter directement.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:abousanogo419@gmail.com" class="contact-link">
+        <span>✉</span> abousanogo419@gmail.com
+      </a>
+      <a href="tel:+33611745229" class="contact-link">
+        <span>📞</span> 06 11 74 52 29
+      </a>
+      <a href="https://www.linkedin.com/in/abou-lacine-sanogo-966493253" target="_blank" class="contact-link">
+        <span>in</span> LinkedIn
+      </a>
+      <a href="https://github.com/lc945" target="_blank" class="contact-link">
+        <span>⌥</span> github.com/lc945
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>Abou Lacine SANOGO © 2026</span>
+  <span style="color:var(--border)">BUT 3 Informatique · IUT Villetaneuse</span>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+  function animRing() { rx += (mx-rx)*0.12; ry += (my-ry)*0.12; ring.style.left = rx+'px'; ring.style.top = ry+'px'; requestAnimationFrame(animRing); }
+  animRing();
+
+  // Fade-up on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // Active nav link
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#'+current ? 'var(--white)' : '';
+    });
+  });
+</script>
 </body>
 </html>
