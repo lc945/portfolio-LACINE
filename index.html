@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Abou Lacine SANOGO — Développeur Full Stack</title>
-  <meta name="description" content="Portfolio d'Abou Lacine SANOGO – Développeur Full Stack, étudiant BUT 3 Informatique IUT Villetaneuse"/>
+  <title>Abou Lacine SANOGO — Futur ingénieur Systèmes Embarqués</title>
+  <meta name="description" content="Portfolio d'Abou Lacine SANOGO – Futur ingénieur Systèmes Embarqués (ECE Paris), développeur full-stack. À la recherche d'une alternance à partir de septembre 2026."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
@@ -124,7 +124,7 @@
     }
     .hero-inner {
       position: relative; z-index: 1;
-      max-width: 800px;
+      max-width: 900px;
     }
     .hero-tag {
       display: inline-flex; align-items: center; gap: 8px;
@@ -166,7 +166,7 @@
     .hero-sub {
       font-size: 17px;
       color: var(--muted);
-      max-width: 520px;
+      max-width: 640px;
       margin-bottom: 40px;
       line-height: 1.8;
     }
@@ -289,7 +289,7 @@
     }
 
     /* ── SKILLS ── */
-    #skills { background: var(--bg2); }
+    #skills { background: var(--bg); }
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -303,6 +303,7 @@
       padding: 24px;
       transition: border-color 0.2s, transform 0.2s;
     }
+    .skill-card.highlight { border-color: rgba(79,138,255,0.35); background: rgba(79,138,255,0.05); }
     .skill-card:hover {
       border-color: rgba(79,138,255,0.3);
       transform: translateY(-3px);
@@ -574,7 +575,7 @@
     .stage-missions li:last-child { border-bottom: none; }
 
     /* ── CONCLUSION ── */
-    #conclusion { background: var(--bg2); }
+    #recherche { background: var(--bg2); }
     .conclusion-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -659,10 +660,9 @@
   <ul class="nav-links">
     <li><a href="#about">À propos</a></li>
     <li><a href="#parcours">Parcours</a></li>
-    <li><a href="#projects">Projets</a></li>
-    <li><a href="#competences">Compétences</a></li>
-    <li><a href="#stage">Stage</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#projects">Expériences</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#recherche">Alternance</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -673,18 +673,17 @@
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
   <div class="hero-inner">
-    <div class="hero-tag">Disponible immédiatement</div>
+    <div class="hero-tag">Disponible immédiatement · Recherche alternance</div>
     <h1 class="hero-title">
       Abou Lacine<br>
       <span class="name">SANOGO</span><br>
-      <span class="line2">Full Stack Dev.</span>
+      <span class="line2">Systèmes Embarqués</span>
     </h1>
     <p class="hero-sub">
-      Étudiant en <strong>3e année de BUT Informatique</strong>, admis en <strong>ING3 Systèmes embarqués à l'ECE Paris</strong> pour septembre 2026. Compétences solides en développement <em>web</em>, <em>mobile</em> et <em>data</em>. Je recherche une <strong>alternance</strong>  en tant que Développeur Systèmes Embarqués pour mettre la
-      programmation au service de l'innovation matérielle et logicielle..
+      Futur ingénieur en <strong>Systèmes Embarqués</strong> (ING3, <strong>ECE Paris</strong>) après un BUT Informatique, et développeur full-stack. Je m'intéresse aux environnements de <strong>haute fiabilité</strong> — aéronautique, défense, médical, ferroviaire — et je recherche une <strong>alternance à partir de septembre 2026</strong>.
     </p>
     <div class="hero-ctas">
-      <a href="CV_Abou_Lacine_SANOGO.pdf" class="btn-primary" download>
+      <a href="CV - Abou Lacine SANOGO.pdf" class="btn-primary" download>
         ↓ Télécharger mon CV
       </a>
       <a href="#contact" class="btn-ghost">Me contacter →</a>
@@ -704,23 +703,23 @@
       <img src="assets/img/logo/image0.png" alt="Photo Abou Lacine SANOGO"/>
     </div>
     <div class="about-text fade-up">
-      <h3>Développeur Full Stack,<br>passionné par les données.</h3>
+      <h3>Du développement logiciel<br>aux systèmes embarqués.</h3>
       <p>
-        Je suis entré dans l'informatique avec une vision claire : créer des outils qui <strong>ont vraiment un impact</strong>. Pendant ces 3 années de BUT, j'ai développé une double culture — <em>développement web</em> (React, Node, Flutter) et <em>data</em> (Python, Pandas, SQL) — en travaillant toujours sur des projets concrets, pas seulement dans des salles de cours.
+        Après un <strong>BUT Informatique</strong> à l'IUT de Villetaneuse, je rejoins en septembre 2026 le <em>cycle ingénieur Systèmes Embarqués de l'ECE Paris</em>, en apprentissage. J'y prolonge une culture logicielle solide vers l'électronique, l'embarqué et l'IoT, que j'approfondis déjà en autodidacte.
       </p>
       <p>
-        Ce qui me définit dans un projet : je ne lâche pas avant que ça marche vraiment. Que ce soit sur la plateforme <strong>Marchés BTP</strong> (mis en production, utilisable) ou sur <strong>namiCV</strong> (mon projet perso lancé de zéro), je m'engage jusqu'aux résultats mesurables.
+        Je conçois des applications <strong>web et mobiles de bout en bout</strong> (Node.js, React, Flutter) et je programme en <strong>C/C++ et Python</strong>. Architecture logicielle, conception d'API REST, sécurité applicative : cette rigueur, je veux la mettre au service de systèmes où la fiabilité n'est pas une option.
       </p>
       <p>
-        Mon objectif : évoluer en <em>développeur Full Stack orienté Data</em>, capable de concevoir des applications pilotées par la donnée.
+        Je recherche une <em>alternance dans les industries de pointe</em> (aéronautique, défense, médical, ferroviaire), avec la rigueur, l'esprit critique et le sens du travail en équipe qu'elles exigent.
       </p>
       <div class="about-tags">
-        <span class="tag">React.js</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">Flutter</span>
+        <span class="tag">C/C++</span>
         <span class="tag">Python</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">Git</span>
+        <span class="tag">Embarqué &amp; IoT (en formation)</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">React</span>
+        <span class="tag">Flutter</span>
         <span class="tag">Anglais courant</span>
         <span class="tag">Paris</span>
       </div>
@@ -738,10 +737,10 @@
     <div class="tl-item">
       <div class="tl-dot">🎓</div>
       <div class="tl-content">
-        <div class="tl-date">Septembre 2026</div>
-        <div class="tl-title">ING3 — Systèmes embarqués (Apprentissage)</div>
-        <div class="tl-org">ECE Paris</div>
-        <div class="tl-desc">Admis en cycle ingénieur, spécialité systèmes embarqués, en alternance.</div>
+        <div class="tl-date">À partir de septembre 2026 · Apprentissage</div>
+        <div class="tl-title">Cycle Ingénieur Systèmes Embarqués (ING3)</div>
+        <div class="tl-org">ECE Paris — École Centrale d'Électronique</div>
+        <div class="tl-desc">Cycle ingénieur en apprentissage, spécialité systèmes embarqués. Je recherche l'entreprise qui m'accueillera en alternance.</div>
       </div>
     </div>
 
@@ -749,35 +748,62 @@
       <div class="tl-dot">🎓</div>
       <div class="tl-content">
         <div class="tl-date">Septembre 2023 – Mars 2026</div>
-        <div class="tl-title">BUT 3 Informatique — Réalisation d'Applications</div>
-        <div class="tl-org">IUT Villetaneuse, Université Sorbonne Paris Nord</div>
-        <div class="tl-desc">Formation en développement web, mobile et gestion de données. Projets en équipe, architecture logicielle, méthodes agiles.</div>
+        <div class="tl-title">BUT Informatique — Réalisation d'applications</div>
+        <div class="tl-org">IUT de Villetaneuse, Université Sorbonne Paris Nord</div>
+        <div class="tl-desc">Développement web, mobile et bases de données. Projets en équipe, architecture logicielle, méthodes agiles.</div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- EXPÉRIENCES & PROJETS -->
 <section id="projects">
-  <div class="section-label">Projets & SAÉ</div>
+  <div class="section-label">Expériences &amp; projets</div>
   <div class="section-title">Ce que j'ai construit</div>
-  <p class="section-desc">Des traces concrètes avec des résultats mesurables.</p>
+  <p class="section-desc">Des applications de bout en bout, conçues pour être sécurisées, évolutives et maintenables.</p>
   <div class="projects-grid">
+
+    <!-- FleetOS -->
+    <div class="project-card fade-up">
+      <div class="project-meta">
+        <span class="project-type">Stage développeur full stack</span>
+        <span class="project-date">Mai – Août 2026</span>
+      </div>
+      <div class="project-title">FleetOS — SaaS de gestion de flotte</div>
+      <div class="project-desc">
+        SM Drivers, Les Ulis — entreprise de transport VTC. Transformation d'un prototype non fonctionnel en une application SaaS réelle, sécurisée et évolutive.
+      </div>
+      <ul class="comp-examples" style="margin-bottom: 20px;">
+        <li>Conception de la base de données, de l'API REST et de la logique métier (véhicules, conducteurs, carburant, maintenance, sinistres)</li>
+        <li>Authentification à trois rôles (RBAC), facturation Factur-X, signature électronique des contrats</li>
+        <li>Architecture multi-tenant avec cloisonnement des données, documentation Swagger</li>
+        <li>Déploiement : Docker, Render, Netlify</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">NestJS</span>
+        <span class="stack-tag">TypeScript</span>
+        <span class="stack-tag">PostgreSQL</span>
+        <span class="stack-tag">Prisma</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">JWT</span>
+        <span class="stack-tag">API REST</span>
+      </div>
+    </div>
 
     <!-- namiCV -->
     <div class="project-card fade-up">
       <div class="project-meta">
         <span class="project-type">Projet personnel</span>
-        <span class="project-date">Août 2025 →</span>
+        <span class="project-date">Depuis août 2025</span>
       </div>
       <div class="project-title">namiCV</div>
       <div class="project-desc">
-        Application de génération automatisée de CV et lettres de motivation personnalisés. L'utilisateur renseigne ses informations, l'app produit des documents prêts-à-l'emploi via des modèles dynamiques.
+        Backend d'une application qui génère des CV et lettres de motivation personnalisés à partir des informations saisies par l'utilisateur.
       </div>
       <div class="project-results">
         <div class="project-results-label">Résultat</div>
-        <p>Génération automatisée adaptée à chaque profil — temps de création de documents réduit drastiquement.</p>
+        <p>Génération automatisée de documents adaptés à chaque profil, qui réduit fortement le temps de création.</p>
       </div>
       <div class="project-stack">
         <span class="stack-tag">Node.js</span>
@@ -786,268 +812,121 @@
       </div>
     </div>
 
-    <!-- Marchés BTP -->
-    <div class="project-card fade-up">
-      <div class="project-meta">
-        <span class="project-type">Stage professionnel</span>
-        <span class="project-date">Juil. – Sept. 2025</span>
-      </div>
-      <div class="project-title">Marchés BTP</div>
-      <div class="project-desc">
-        Marketplace de mise en relation entreprises & freelances dans le secteur BTP. Conversion complète des maquettes en composants React, dashboards multi-rôles (Freelance, Entreprise, Admin), formulaires multi-étapes, upload de documents.
-      </div>
-      <div class="project-results">
-        <div class="project-results-label">Résultat</div>
-        <p>Interface entièrement fonctionnelle, fidèle aux maquettes. Navigation fluide entre toutes les sections. Inscription simplifiée pour freelances et entreprises.</p>
-      </div>
-      <div class="project-stack">
-        <span class="stack-tag">React.js</span>
-        <span class="stack-tag">TailwindCSS</span>
-        <span class="stack-tag">Node.js</span>
-        <span class="stack-tag">JavaScript</span>
-      </div>
-    </div>
-
-    <!-- App mobile -->
+    <!-- NutriTrack -->
     <div class="project-card fade-up">
       <div class="project-meta">
         <span class="project-type">Projet académique</span>
-        <span class="project-date">Nov. 2025 →</span>
+        <span class="project-date">Nov. 2025 – Fév. 2026</span>
       </div>
       <div class="project-title">NutriTrack — App mobile</div>
       <div class="project-desc">
-        Application cross-platform (Android/iOS) de gestion de recettes et suivi nutritionnel. Architecture MVVM, données hors-ligne, sync backend. Collaboré en équipe de 5 via Git agile (sprints, daily, retros).
+        Application mobile cross-platform (Android/iOS) de gestion de recettes et de suivi nutritionnel. Architecture MVVM, gestion hors-ligne des données, base SQLite locale synchronisée avec un backend via API. Équipe de 5 en méthode agile via Git.
       </div>
       <div class="project-results">
         <div class="project-results-label">Résultat</div>
-        <p>App fonctionnelle testée par des étudiants. Code structuré, documenté et réutilisable pour futurs projets.</p>
+        <p>Application testée par un panel d'utilisateurs. Code structuré, documenté et maintenable.</p>
       </div>
       <div class="project-stack">
         <span class="stack-tag">Flutter</span>
         <span class="stack-tag">Dart</span>
         <span class="stack-tag">SQLite</span>
         <span class="stack-tag">REST API</span>
-        <span class="stack-tag">Git</span>
-      </div>
-    </div>
-
-    <!-- SAÉ Parcoursup -->
-    <div class="project-card fade-up">
-      <div class="project-meta">
-        <span class="project-type">SAÉ Data</span>
-        <span class="project-date">2024</span>
-      </div>
-      <div class="project-title">Analyse Parcoursup</div>
-      <div class="project-desc">
-        Pipeline Python de classement automatisé de +1000 candidats Parcoursup. Critères pondérés, score final, data viz (Matplotlib), export tableaux HTML pour rapports jury.
-      </div>
-      <div class="project-results">
-        <div class="project-results-label">Impact mesuré</div>
-        <p>−50% de temps de traitement manuel · +20% de rapidité de décision pour le jury</p>
-      </div>
-      <div class="project-stack">
-        <span class="stack-tag">Python</span>
-        <span class="stack-tag">Pandas</span>
-        <span class="stack-tag">Matplotlib</span>
-        <span class="stack-tag">HTML/CSS</span>
-      </div>
-      <div style="overflow-x:auto; margin-top: 20px;">
-        <table class="eval-table">
-          <thead><tr>
-            <th>Points forts</th>
-            <th>Vigilance</th>
-            <th>Problèmes rencontrés</th>
-            <th>Acquis</th>
-          </tr></thead>
-          <tbody><tr>
-            <td>Automatisation, lisibilité des graphes, boxplots parlants pour le jury</td>
-            <td>Mieux documenter les hypothèses de pondération dès le début</td>
-            <td>CSV hétérogènes (encodages différents), données manquantes</td>
-            <td>Normaliser les données plus tôt, créer un script d'import générique réutilisable</td>
-          </tr></tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- PME -->
-    <div class="project-card fade-up">
-      <div class="project-meta">
-        <span class="project-type">Projet bénévole</span>
-        <span class="project-date">2024</span>
-      </div>
-      <div class="project-title">Site vitrine PME</div>
-      <div class="project-desc">
-        Pages publicitaires et mini-sites pour une PME parisienne. Intégration front, formulaires, liaison SQL, optimisation des requêtes BDD. Mise en ligne et suivi des métriques sur 3 mois.
-      </div>
-      <div class="project-results">
-        <div class="project-results-label">Impact mesuré</div>
-        <p>+20% de trafic en 3 mois · ~15% de taux de conversion</p>
-      </div>
-      <div class="project-stack">
-        <span class="stack-tag">HTML/CSS</span>
-        <span class="stack-tag">JavaScript</span>
-        <span class="stack-tag">SQL</span>
+        <span class="stack-tag">Git/GitHub</span>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- COMPÉTENCES BUT -->
-<section id="competences">
-  <div class="section-label">Référentiel BUT</div>
-  <div class="section-title">6 compétences — synthèse</div>
-  <p class="section-desc">Ce que j'ai appris à faire, prouvé projet par projet.</p>
-  <div class="comp-grid fade-up">
+<!-- COMPÉTENCES TECHNIQUES -->
+<section id="skills">
+  <div class="section-label">Compétences techniques</div>
+  <div class="section-title">Ma boîte à outils</div>
+  <p class="section-desc">Des langages bas niveau au full-stack, avec une montée en compétence sur l'embarqué et l'IoT.</p>
+  <div class="skills-grid fade-up">
 
-    <div class="comp-card">
-      <div class="comp-num">Compétence 01</div>
-      <div class="comp-name">Réaliser</div>
-      <div class="comp-desc">Concevoir et développer des applications complètes, du front au back.</div>
-      <ul class="comp-examples">
-        <li>Marchés BTP : composants React modulaires, dashboards, formulaires multi-étapes</li>
-        <li>namiCV : API CRUD, gestion de modèles de documents, génération automatisée</li>
-        <li>PME : pages responsive, formulaires, intégration SQL</li>
-      </ul>
+    <div class="skill-card highlight">
+      <div class="skill-card-icon">⚙️</div>
+      <h4>Embarqué &amp; IoT</h4>
+      <p>C/C++, notions d'électronique, de systèmes embarqués et d'IoT ; formation en autodidacte en parallèle du cycle ingénieur ING3</p>
     </div>
 
-    <div class="comp-card">
-      <div class="comp-num">Compétence 02</div>
-      <div class="comp-name">Optimiser</div>
-      <div class="comp-desc">Améliorer la performance, la qualité et la maintenabilité du code.</div>
-      <ul class="comp-examples">
-        <li>SAÉ : −50% temps de traitement grâce à la normalisation et scripts génériques</li>
-        <li>PME : optimisation requêtes SQL, gains trafic/conversion mesurés</li>
-        <li>NutriTrack : code structuré, documenté, réutilisable (MVVM)</li>
-      </ul>
+    <div class="skill-card">
+      <div class="skill-card-icon">💻</div>
+      <h4>Langages</h4>
+      <p>C/C++, Python, Java, JavaScript, PHP, Dart</p>
     </div>
 
-    <div class="comp-card">
-      <div class="comp-num">Compétence 03</div>
-      <div class="comp-name">Administrer</div>
-      <div class="comp-desc">Modéliser et gérer des bases de données fiables et efficaces.</div>
-      <ul class="comp-examples">
-        <li>PME : structuration BDD + optimisation requêtes</li>
-        <li>Marchés BTP : pré-modélisation (freelances, entreprises, contrats, appels d'offres)</li>
-        <li>NutriTrack : SQLite local avec repositories et sync API</li>
-      </ul>
+    <div class="skill-card">
+      <div class="skill-card-icon">🎨</div>
+      <h4>Frontend</h4>
+      <p>React, HTML/CSS, Bootstrap, Figma</p>
     </div>
 
-    <div class="comp-card">
-      <div class="comp-num">Compétence 04</div>
-      <div class="comp-name">Gérer</div>
-      <div class="comp-desc">Organiser le travail, suivre l'avancement et restituer clairement.</div>
-      <ul class="comp-examples">
-        <li>SAÉ : rapports viz + tableaux HTML pour le jury</li>
-        <li>NutriTrack : gestion agile, sprints, daily standups, retrospectives</li>
-        <li>Marchés BTP : priorisation des écrans (inscriptions → contrats → paiements)</li>
-      </ul>
+    <div class="skill-card">
+      <div class="skill-card-icon">🔧</div>
+      <h4>Backend</h4>
+      <p>Node.js, PHP, API REST</p>
     </div>
 
-    <div class="comp-card">
-      <div class="comp-num">Compétence 05</div>
-      <div class="comp-name">Conduire</div>
-      <div class="comp-desc">Participer à la conduite d'un projet en méthodes agiles.</div>
-      <ul class="comp-examples">
-        <li>Marchés BTP : boucles de feedback rapides avec maquettes</li>
-        <li>NutriTrack : équipe de 5, pull requests, revues de code, branches Git</li>
-      </ul>
+    <div class="skill-card">
+      <div class="skill-card-icon">🗄️</div>
+      <h4>Bases de données</h4>
+      <p>SQL, PostgreSQL, MongoDB, Redis, SQLite</p>
     </div>
 
-    <div class="comp-card">
-      <div class="comp-num">Compétence 06</div>
-      <div class="comp-name">Collaborer</div>
-      <div class="comp-desc">Communiquer, documenter et travailler efficacement en équipe.</div>
-      <ul class="comp-examples">
-        <li>NutriTrack : collaboration équipe de 5, documentation technique</li>
-        <li>SAÉ : restitution accessible pour un jury non-technique</li>
-        <li>PME & stage : travail en binôme, retours itératifs</li>
-      </ul>
+    <div class="skill-card">
+      <div class="skill-card-icon">🏗️</div>
+      <h4>Ingénierie logicielle</h4>
+      <p>Architecture logicielle, conception d'API REST, modélisation de données, architecture multi-tenant, RBAC &amp; sécurité applicative, méthode agile</p>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-icon">🖥️</div>
+      <h4>Systèmes &amp; réseaux</h4>
+      <p>Notions Windows/Linux, scripting (Python), sensibilisation cybersécurité (CVE, bonnes pratiques)</p>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-icon">📊</div>
+      <h4>Data &amp; IA</h4>
+      <p>Pandas, Matplotlib, Power BI, Tableau ; automatisation (n8n, Make, API)</p>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-icon">🧰</div>
+      <h4>Outils</h4>
+      <p>Git/GitHub, Supabase, méthode agile</p>
     </div>
 
   </div>
 </section>
 
-<!-- STAGE -->
-<section id="stage">
-  <div class="section-label">Volet stage</div>
-  <div class="section-title">Marchés BTP — Analyse critique</div>
-  <p class="section-desc">Mon expérience professionnelle de 2 mois chez IMT Starter.</p>
-  <div class="stage-layout fade-up">
-    <div class="stage-info">
-      <div class="stage-badge">Juillet – Septembre 2025 · 2 mois</div>
-      <h3>Plateforme Marchés BTP</h3>
-      <div class="org">IMT Starter · Évry-Courcouronnes</div>
-      <p>Marketplace B2B de mise en relation entre entreprises du BTP et freelances (maçons, électriciens, plombiers…). Projet from-scratch, besoin réel, livraison attendue.</p>
-      <p><strong style="color:var(--text)">Mon rôle :</strong> développeur front principal — conversion des maquettes HTML/CSS en composants React, implémentation des interfaces dynamiques, logique responsive, upload de documents.</p>
-      <ul class="stage-missions">
-        <li>Composants React modulaires et réutilisables (Tailwind)</li>
-        <li>Dashboard Entreprise : offres, contrats, candidatures</li>
-        <li>Dashboard Freelance : profil, missions, documents</li>
-        <li>Inscription multi-étapes avec validation et upload (Kbis, assurance…)</li>
-        <li>Filtres avancés et pages d'appels d'offres</li>
-        <li>Pré-cadrage backend : endpoints, modèles BDD, sécurité</li>
-      </ul>
-    </div>
-    <div>
-      <div style="overflow-x:auto;">
-        <table class="eval-table">
-          <thead><tr>
-            <th>Points forts</th>
-            <th>Points de vigilance</th>
-            <th>Bonnes surprises</th>
-            <th>Vrais problèmes</th>
-            <th>Acquis pour la suite</th>
-          </tr></thead>
-          <tbody><tr>
-            <td>Découpage propre en composants, rendu fidèle aux maquettes, navigation fluide</td>
-            <td>Conventions à standardiser plus tôt (naming, routes, structure dossiers)</td>
-            <td>Gains de productivité rapides grâce aux composants réutilisables</td>
-            <td>Gestion des uploads multiples et des états d'erreur côté front</td>
-            <td>Mettre en place un design system léger dès le début + validations uniformes</td>
-          </tr></tbody>
-        </table>
-      </div>
-      <div style="margin-top: 24px; padding: 20px; background: var(--surface); border-radius: 12px; border: 1px solid var(--border);">
-        <div class="section-label" style="margin-bottom: 8px;">Correspondance compétences BUT</div>
-        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;">
-          <span class="tag">✓ Réaliser</span>
-          <span class="tag">✓ Optimiser</span>
-          <span class="tag">✓ Administrer</span>
-          <span class="tag">✓ Gérer</span>
-          <span class="tag">✓ Conduire</span>
-          <span class="tag">✓ Collaborer</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONCLUSION -->
-<section id="conclusion">
-  <div class="section-label">Conclusion</div>
-  <div class="section-title">Ce que je retiens</div>
-  <p class="section-desc">Bilan honnête de 3 ans de formation.</p>
+<!-- RECHERCHE ALTERNANCE -->
+<section id="recherche">
+  <div class="section-label">Alternance</div>
+  <div class="section-title">Ce que je recherche</div>
+  <p class="section-desc">Un poste en alternance où la rigueur d'ingénierie compte autant que le code.</p>
   <div class="conclusion-grid fade-up">
     <div class="concl-card green">
-      <div class="concl-icon">✓</div>
-      <div class="concl-label">Points forts</div>
-      <p>Clarté des livrables (visualisations, tableaux HTML), intégration front propre et fidèle, sens de la donnée, capacité à aller jusqu'au résultat mesurable.</p>
-    </div>
-    <div class="concl-card yellow">
-      <div class="concl-icon">⚠</div>
-      <div class="concl-label">Points de vigilance</div>
-      <p>Documenter plus tôt les hypothèses et choix techniques. Homogénéiser les conventions de code (naming, structure) dès le démarrage d'un projet.</p>
+      <div class="concl-icon">→</div>
+      <div class="concl-label">Poste visé</div>
+      <p>Alternance en systèmes embarqués, dans le cadre du cycle ingénieur ING3 de l'ECE Paris, à partir de septembre 2026.</p>
     </div>
     <div class="concl-card blue">
       <div class="concl-icon">◆</div>
-      <div class="concl-label">Bonnes pratiques</div>
-      <p>Composants réutilisables, pipelines de données testables, to-do/issue tracking, revues de code systématiques.</p>
+      <div class="concl-label">Secteurs</div>
+      <p>Environnements de haute fiabilité : aéronautique, défense, médical, ferroviaire.</p>
     </div>
     <div class="concl-card purple">
-      <div class="concl-icon">→</div>
-      <div class="concl-label">Acquis pour la suite</div>
-      <p>Renforcer l'automatisation (imports, validations), intégrer un design system léger, connecter proprement le front à un back sécurisé.</p>
+      <div class="concl-icon">✓</div>
+      <div class="concl-label">Ce que j'apporte</div>
+      <p>Développement full-stack de bout en bout, C/C++ et Python, architecture logicielle, API REST, sécurité applicative (RBAC, JWT), travail en équipe en méthode agile.</p>
+    </div>
+    <div class="concl-card yellow">
+      <div class="concl-icon">↗</div>
+      <div class="concl-label">En progression</div>
+      <p>Issu d'un BUT Informatique, j'ai des notions en électronique et en embarqué que je consolide en autodidacte, puis avec le cycle ingénieur. Je suis prêt à apprendre vite sur le terrain.</p>
     </div>
   </div>
 </section>
@@ -1058,7 +937,7 @@
   <div class="section-title">Travaillons ensemble.</div>
   <div class="contact-inner fade-up">
     <p style="color:var(--muted); max-width:480px; margin-bottom: 8px;">
-      Disponible pour un stage de 4 à 6 mois à partir du 9 mars 2026. N'hésitez pas à me contacter directement.
+      Je recherche une alternance en systèmes embarqués à partir de septembre 2026. N'hésitez pas à me contacter directement.
     </p>
     <div class="contact-links">
       <a href="mailto:abousanogo419@gmail.com" class="contact-link">
@@ -1067,10 +946,10 @@
       <a href="tel:+33611745229" class="contact-link">
         <span>📞</span> 06 11 74 52 29
       </a>
-      <a href="https://www.linkedin.com/in/abou-lacine-sanogo-966493253" target="_blank" class="contact-link">
+      <a href="https://www.linkedin.com/in/aboulacinesanogo" target="_blank" rel="noopener" class="contact-link">
         <span>in</span> LinkedIn
       </a>
-      <a href="https://github.com/lc945" target="_blank" class="contact-link">
+      <a href="https://github.com/lc945" target="_blank" rel="noopener" class="contact-link">
         <span>⌥</span> github.com/lc945
       </a>
     </div>
@@ -1080,7 +959,7 @@
 <!-- FOOTER -->
 <footer>
   <span>Abou Lacine SANOGO © 2026</span>
-  <span style="color:var(--border)">BUT 3 Informatique · IUT Villetaneuse</span>
+  <span style="color:var(--border)">Cycle ingénieur Systèmes Embarqués · ECE Paris</span>
 </footer>
 
 <script>
